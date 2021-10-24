@@ -16,9 +16,12 @@ if($method == "OPTIONS") {
 
 header('Content-Type: application/json; charset=utf-8');
 
-if(isset($_GET['controller']) && isset($_GET['method'])) {
-	$controllerName = $_GET['controller'];
-	$method = $_GET['method'];
+//print_r($_REQUEST);
+//die();
+
+if(isset($_REQUEST['controller']) && isset($_REQUEST['method'])) {
+	$controllerName = $_REQUEST['controller'];
+	$method = $_REQUEST['method'];
 	$class = ucfirst($controllerName) . 'Controller';
 
 	require("$controllerName/$class.php");
